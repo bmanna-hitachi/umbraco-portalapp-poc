@@ -85,6 +85,8 @@ dotnet watch run
 
 The controller is calling an external API to fetch the *list of all services.*
 
+This is where our existing `portalapp` comes in.
+
 Create `api.py` which will contain the view for this.
 
 ```python
@@ -136,3 +138,5 @@ And, uncomment the commented lines inside `~/Controller/ServicesController.cs`
 
 // _logger.Log(LogLevel.Information, loggingResponse);
 ```
+
+> Run the `portalapp` server and then run the dotnet server.
