@@ -26,6 +26,9 @@ winget install Microsoft.DotNet.Runtime.7
 
 > Post installation, restart the system to proceed ahead.
 
+For manual installation, [use this link to download respective executables.](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+
+
 ### 2. Install Umbraco
 
 ### Add the `nuget` source for Umbraco
