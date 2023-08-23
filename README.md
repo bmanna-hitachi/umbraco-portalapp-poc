@@ -80,3 +80,59 @@ dotnet watch run
 * Was not able to write to the console, and wrote to the log file instead
 
 > The log file can be found inside `~/umbraco/Logs/UmbracoTraceLog.xxxxxxxxxx.json`
+
+## !!! NOTE !!!
+
+The controller is calling an external API to fetch the *list of all services.*
+
+Create `api.py` which will contain the view for this.
+
+```python
+import json
+from portalapp.models import ServicesDim
+from django.http import HttpResponse
+
+
+def services(request):
+    services = ServicesDim.objects.all()
+    services_list = {}
+    services_list['san_services'] = \
+        list(services
+             .filter(service_category='SAN')
+             .order_by('service_id')
+             .values()
+             )
+    services_list['hnas_services'] = \
+        list(services
+             .filter(service_category='HNAS')
+             .order_by('service_id')
+             .values()
+             )
+    return HttpResponse(json.dumps(services_list), content_type='applicaton/json')
+```
+
+Add inside `urls.py`:
+
+```python
+from . import api
+
+urlpatterns = [
+    ...
+
+    path(r'api/services', api.services, name='api_services'),
+]
+```
+
+And, uncomment the commented lines inside `~/Controller/ServicesController.cs`
+
+```cs
+// var responseTask = client.GetStringAsync("http://localhost:8000/portalapp/api/services");
+
+// string response = responseTask.Result;
+
+// var result = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>>(response);
+
+// var loggingResponse = $"response data: {result?["san_services"][0]["service_id"]}";
+
+// _logger.Log(LogLevel.Information, loggingResponse);
+```
