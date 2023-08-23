@@ -1,0 +1,464 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<nav class="relative bg-inspiredred text-white p-3">
+  <div class="mx-auto hidden lg:block">
+    <div class="flex lg:justify-between justify-center">
+      <div class="flex space-x-4 items-center">
+        <div class="px-4">
+          @* HITACHI LOGO *@
+          <a class="flex items-center" href="/">
+            <img
+              src="/img/hitachi-logo.svg"
+              class="h-6 mr-2"
+              alt="Hitachi Logo"
+            />
+          </a>
+        </div>
+        @* Logo *@
+        <div class="mr-10">
+          <a class="flex items-center" href="/">
+            <img
+              src="/img/portal-logo.svg"
+              class="h-8 mr-2"
+              alt="Executer Portal Logo"
+            />
+            <span class="self-center text-xl font-semibold whitespace-nowrap"
+              >WASP
+            </span>
+          </a>
+        </div>
+
+        @* Primary Navigation *@
+        <div class="flex items-center space-x-4">
+          @* CGI Services *@
+          <button
+            id="menuCgiServices"
+            class="p-3 relative flex items-center justify-center border-transparent border border-dashed focus:border-solid focus:border-white transform transition duration-300 hover:border-white focus:scale-105 z-10"
+          >
+            CGI Services
+            <svg
+              class="w-5 h-5 ml-1"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <div
+              id="submenuCgiServices"
+              class="absolute hidden top-full min-w-full w-max mt-4 bg-inspiredred p-3"
+            >
+              <ul class="text-left">
+                <a href="#" class="">
+                  <li
+                    class="p-2 transform transition duration-200 hover:scale-105 border-transparent border border-dashed hover:border-white"
+                  >
+                    Service Forms
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </button>
+
+          @* SRF Activities *@
+          <button
+            id="menuSrfActivities"
+            class="p-3 relative flex items-center justify-center border-transparent border border-dashed focus:border-solid focus:border-white transform transition duration-300 hover:border-white focus:scale-105 z-10"
+          >
+            SRF Activities
+            <svg
+              class="w-5 h-5 ml-1"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <div
+              id="submenuSrfActivities"
+              class="absolute hidden top-full min-w-full w-max mt-4 bg-inspiredred p-3"
+            >
+              <ul class="text-left">
+                <a href="#" class="">
+                  <li
+                    class="p-2 transform transition duration-200 hover:scale-105 border-transparent border border-dashed hover:border-white"
+                  >
+                    Download Template
+                  </li>
+                </a>
+                <a href="#" class="">
+                  <li
+                    class="p-2 transform transition duration-200 hover:scale-105 border-transparent border border-dashed hover:border-white"
+                  >
+                    Upload SRF
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </button>
+
+          @* History *@
+          <button
+            id="menuHistory"
+            class="p-3 relative flex items-center justify-center border-transparent border border-dashed focus:border-solid focus:border-white transform transition duration-300 hover:border-white focus:scale-105 z-10"
+          >
+            History
+            <svg
+              class="w-5 h-5 ml-1"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <div
+              id="submenuHistory"
+              class="absolute hidden top-full min-w-full w-max mt-4 bg-inspiredred p-3"
+            >
+              <ul class="text-left">
+                <a href="#" class="">
+                  <li
+                    class="p-2 transform transition duration-200 hover:scale-105 border-transparent border border-dashed hover:border-white"
+                  >
+                    Logs
+                  </li>
+                </a>
+                <a href="#" class="">
+                  <li
+                    class="p-2 transform transition duration-200 hover:scale-105 border-transparent border border-dashed hover:border-white"
+                  >
+                    Status
+                  </li>
+                </a>
+                <a href="#" class="">
+                  <li
+                    class="p-2 transform transition duration-200 hover:scale-105 border-transparent border border-dashed hover:border-white"
+                  >
+                    Validated Services
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      @* Secondary Navigation *@
+      <div class="flex items-center space-x-2 mr-8">
+        <div
+          class="p-3 border border-transparent border-dashed focus:border-white transform transition duration-300 hover:border-white"
+        >
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        @* Profile Menu Button *@
+        <button
+          id="menuUser"
+          class="p-3 relative flex items-center justify-center border-transparent border border-dashed focus:border-solid focus:border-white transform transition duration-300 hover:border-white focus:scale-105 z-10"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+          <div
+            id="submenuUser"
+            class="absolute hidden top-full w-32 mt-4 bg-inspiredred p-3"
+          >
+            <ul class="text-left">
+              <li class="p-2 mb-4 italic border-b border-white">Hi, Boss</li>
+              <a href="#" class="">
+                <li
+                  class="p-2 transform transition duration-200 hover:scale-105 border-transparent border border-dashed hover:border-white"
+                >
+                  Logout
+                </li>
+              </a>
+            </ul>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  @* Mobile Menu *@
+  <div class="lg:hidden flex items-center p-2">
+    @* Hamburger Menu *@
+    <button id="openMobileMenuButton">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
+    </button>
+
+    @* LOGO + TEXT *@
+    <div class="grow items-center mx-auto">
+      <div class="flex justify-center">
+        <a class="flex items-center" href="/">
+          <img
+            src="/img/portal-logo.svg"
+            class="h-8 mr-2"
+            alt="Executer Portal Logo"
+          />
+          <span class="self-center text-xl font-semibold whitespace-nowrap"
+            >Executer Portal
+          </span>
+        </a>
+      </div>
+    </div>
+
+    @* Cart *@
+    <div class="sm:px-4">
+      <a href="#">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+@* Mobile Navigation Sidebar *@
+<div
+  id="sidebar"
+  class="fixed inset-y-0 left-0 bg-deepblue text-white w-64 z-50 transform -translate-x-full lg:hidden transition duration-300 ease-in-out"
+>
+  @* Close Button *@
+  <button
+    id="closeMobileMenuButton"
+    class="close-mobile-menu w-full flex justify-end px-8 py-4 -mb-4"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  </button>
+
+  @* Naviation menu *@
+  <nav class="flex flex-col justify-between w-full h-screen">
+    @* Primary Navigation *@
+    <div class="">
+      @* CGI Services *@
+      <div class="p-4">
+        <div class="flex flex-wrap items-center font-bold p-2">
+          <svg
+            class="w-5 h-5 mr-2"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          CGI Services
+        </div>
+
+        <ul>
+          <a href="#">
+            <li
+              class="ml-4 px-4 py-2 border-transparent border border-dashed hover:border-white transition duration-200"
+            >
+              Service Forms
+            </li>
+          </a>
+        </ul>
+      </div>
+
+      @* SRF Activities *@
+      <div class="p-4">
+        <div class="flex flex-wrap items-center font-bold p-2">
+          <svg
+            class="w-5 h-5 mr-2"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          SRF Activities
+        </div>
+
+        <ul>
+          <a href="#">
+            <li
+              class="ml-4 px-4 py-2 border-transparent border border-dashed hover:border-white transition duration-200"
+            >
+              Download Template
+            </li>
+          </a>
+          <a href="#">
+            <li
+              class="ml-4 px-4 py-2 border-transparent border border-dashed hover:border-white transition duration-200"
+            >
+              Upload SRF
+            </li>
+          </a>
+        </ul>
+      </div>
+      @* History *@
+      <div class="p-4">
+        <div class="flex flex-wrap items-center font-bold p-2">
+          <svg
+            class="w-5 h-5 mr-2"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          History
+        </div>
+
+        <ul>
+          <a href="#">
+            <li
+              class="ml-4 px-4 py-2 border-transparent border border-dashed hover:border-white transition duration-200"
+            >
+              Logs
+            </li>
+          </a>
+          <a href="#">
+            <li
+              class="ml-4 px-4 py-2 border-transparent border border-dashed hover:border-white transition duration-200"
+            >
+              Status
+            </li>
+          </a>
+          <a href="#">
+            <li
+              class="ml-4 px-4 py-2 border-transparent border border-dashed hover:border-white transition duration-200"
+            >
+              Validated Services
+            </li>
+          </a>
+        </ul>
+      </div>
+      @* User *@
+      <div class="p-4">
+        <div class="flex flex-wrap items-center font-bold py-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1"
+            stroke="currentColor"
+            class="w-4 h-4 mx-2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+            />
+          </svg>
+          Boss
+        </div>
+
+        <ul>
+          <a href="#">
+            <li
+              class="ml-4 px-4 py-2 border-transparent border border-dashed hover:border-white transition duration-200"
+            >
+              Logout
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+
+    @* Secondary Navigation *@
+    <div class="py-8 mb-8 flex justify-center">
+      <img
+        src="/img/hitachi-logo.svg"
+        class="h-4"
+        alt="Hitachi Logo"
+      />
+    </div>
+  </nav>
+</div>
+
+<script src="/js/navbar.js" defer></script>
+

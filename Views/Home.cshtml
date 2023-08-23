@@ -1,0 +1,120 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+<main>
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="p-6">
+      @* Heading *@
+      <h2 class="text-2xl font-bold mb-4">Services</h2>
+      
+      @* All Card *@
+      <div class="text-gray-500 flex flex-wrap">
+
+
+        @* Cards - Service Forms *@
+        <div class="py-3 mr-6">
+          <a href="/services">
+            <div class="block rounded-lg bg-white shadow-lg max-w-xs p-8 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-accentpurple h-full">
+              <div class="flex flex-col space-y-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                </svg>
+                <h5 class="mb-2 text-xl font-bold mt-2">Service Forms</h5>   
+                <p>List of Services designed to build and execute SAN and HNAS operations for storage arrays. For example: Provisioning, expansion and decommissioning of the volumes in a storage array with predefined rules and validations.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+    
+    
+        @* Cards - Download SRF Template *@
+          <div class="py-3 mr-6">
+            <a href="/download">
+              <div class="block rounded-lg bg-white shadow-lg max-w-xs p-8 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-accentpurple h-full">
+                <div class="flex flex-col space-y-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>        
+                  <h5 class="mb-2 text-xl font-bold mt-2">Download SRF Template</h5>   
+                  <p>This is a sample SRF file containing all the pre-defined input and output fields expected under the particular service. This file can be downloaded and updated to be used under Upload SRF functionality.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+    
+    
+        @* Cards - Upload SRF Template *@
+          <div class="py-3 mr-6">
+            <a href="/upload">
+              <div class="block rounded-lg bg-white shadow-lg max-w-xs p-8 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-accentpurple h-full">
+                <div class="flex flex-col space-y-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                  </svg>                     
+                  <h5 class="mb-2 text-xl font-bold mt-2">Upload SRF</h5>   
+                  <p>This facility allows us to upload the SRF file with input data corresponding to the Services. It can be used instead of using Service Forms when bulk operations are to be performed.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+    
+    
+        @* Cards - Logs *@
+          <div class="py-3 mr-6">
+            <a href="/service-logs">
+              <div class="block rounded-lg bg-white shadow-lg max-w-xs p-8 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-accentpurple h-full">
+                <div class="flex flex-col space-y-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path d="M9 18H5C3.89543 18 3 17.1046 3 16V6C3 4.89543 3.89543 4 5 4H17C18.1046 4 19 4.89543 19 6V8"/>
+                    <path d="M4 8H20"/>
+                    <path d="M4 13H9"/>
+                    <path d="M11.5408 16.9723C11.2045 16.3677 11.2045 15.6323 11.5408 15.0277L12.2155 13.815L12.9284 12.6244C13.2838 12.0309 13.9207 11.6632 14.6124 11.6521L16 11.63L17.3876 11.6521C18.0793 11.6632 18.7162 12.0309 19.0716 12.6244L19.7845 13.815L20.4592 15.0277C20.7955 15.6323 20.7955 16.3677 20.4592 16.9723L19.7845 18.185L19.0716 19.3756C18.7162 19.9691 18.0793 20.3368 17.3876 20.3479L16 20.37L14.6124 20.3479C13.9207 20.3368 13.2838 19.9691 12.9284 19.3756L12.2155 18.185L11.5408 16.9723Z"/>
+                    <circle cx="16" cy="16" r="1" fill="currentColor"/>
+                    </svg>                                  
+                  <h5 class="mb-2 text-xl font-bold mt-2">Logs</h5>   
+                  <p>A historical record of everything and anything that happened within a particular requests on a portal via API or UI. It includes events such as transactions, errors and responses.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+    
+    
+        @* Cards - Status *@
+          <div class="py-3 mr-6">
+            <a href="/status">
+              <div class="block rounded-lg bg-white shadow-lg max-w-xs p-8 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-accentpurple h-full">
+                <div class="flex flex-col space-y-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.9809 9.25283C18.2198 7.32031 16.6794 5.77999 14.7469 5.01897C14.5229 5.27358 14.3413 5.56647 14.2133 5.88656C16.0226 6.54172 17.4581 7.97718 18.1133 9.7864C18.4334 9.6584 18.7263 9.47685 18.9809 9.25283ZM12.2276 5.50391C12.1521 5.50131 12.0762 5.5 12 5.5C8.41015 5.5 5.5 8.41015 5.5 12C5.5 15.5899 8.41015 18.5 12 18.5C15.5899 18.5 18.5 15.5899 18.5 12C18.5 11.9237 18.4987 11.8478 18.4961 11.7721C18.8387 11.6648 19.1655 11.5216 19.472 11.347C19.4905 11.5622 19.5 11.78 19.5 12C19.5 16.1421 16.1421 19.5 12 19.5C7.85786 19.5 4.5 16.1421 4.5 12C4.5 7.85786 7.85786 4.5 12 4.5C12.2199 4.5 12.4376 4.50946 12.6527 4.52801C12.4781 4.83451 12.3349 5.16128 12.2276 5.50391Z" fill="currentColor"/>
+                    <circle cx="17" cy="7" r="3" fill="currentColor"/>
+                    </svg>              
+                  <h5 class="mb-2 text-xl font-bold mt-2">Status</h5>   
+                  <p>This facility enables users to view the status of the current and previous submitted requests. It also allows users to download the SRF generated as a part of the Service Request.</p>
+                </div>
+              </div>
+            </a>  
+          </div>
+        
+        @* Cards - Validated Services *@
+          <div class="py-3 mr-6">
+            <a href="/validated_services">
+              <div class="block rounded-lg bg-white shadow-lg max-w-xs p-8 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-accentpurple h-full">
+                <div class="flex flex-col space-y-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.48459C11.3425 1.48459 10.7706 1.90617 9.62667 2.74933L7.90576 4.01778C7.72555 4.15061 7.63545 4.21702 7.53871 4.27288C7.44198 4.32873 7.33941 4.37355 7.13427 4.4632L5.1753 5.31932C3.87315 5.8884 3.22208 6.17294 2.89336 6.74229C2.56464 7.31165 2.64376 8.01777 2.802 9.43L3.04006 11.5546C3.06499 11.7771 3.07745 11.8883 3.07745 12C3.07745 12.1117 3.06499 12.2229 3.04006 12.4454L2.802 14.57C2.64376 15.9822 2.56464 16.6883 2.89336 17.2577C3.22208 17.8271 3.87315 18.1116 5.1753 18.6807L7.13427 19.5368C7.33941 19.6264 7.44198 19.6713 7.53871 19.7271C7.63545 19.783 7.72555 19.8494 7.90576 19.9822L9.62667 21.2507C10.7706 22.0938 11.3425 22.5154 12 22.5154C12.6574 22.5154 13.2294 22.0938 14.3733 21.2507L14.3733 21.2507L16.0942 19.9822C16.2744 19.8494 16.3645 19.783 16.4612 19.7271C16.558 19.6713 16.6605 19.6264 16.8657 19.5368L18.8246 18.6807C20.1268 18.1116 20.7779 17.8271 21.1066 17.2577C21.4353 16.6883 21.3562 15.9822 21.1979 14.57L20.9599 12.4454L20.9599 12.4454C20.935 12.2229 20.9225 12.1117 20.9225 12C20.9225 11.8883 20.9349 11.7771 20.9599 11.5546L20.9599 11.5546L21.1979 9.43001C21.3562 8.01777 21.4353 7.31165 21.1066 6.74229C20.7779 6.17294 20.1268 5.8884 18.8246 5.31932L16.8657 4.4632L16.8657 4.4632C16.6605 4.37355 16.558 4.32872 16.4612 4.27288C16.3645 4.21702 16.2744 4.15061 16.0942 4.01778L14.3733 2.74933C13.2294 1.90617 12.6574 1.48459 12 1.48459ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79083 8 7.99997 9.79086 7.99997 12C7.99997 14.2091 9.79083 16 12 16Z" fill="currentColor"/>
+                      </svg>                 
+                  <h5 class="mb-2 text-xl font-bold mt-2">Validated Services</h5>   
+                  <p>The service requests are validated with set of pre-defined rules which categorizes if the request is approved or not for further execution. This acts as a confirmation before actual execution is performed.</p>
+                </div>
+              </div>
+            </a>  
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</main>
