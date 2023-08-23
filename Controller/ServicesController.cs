@@ -19,15 +19,15 @@ namespace WASP.Controller
         {
             _logger.Log(LogLevel.Information, "From IActionResult Index()");
 
-            var responseTask = client.GetStringAsync("http://localhost:8000/portalapp/api/services");
+            // var responseTask = client.GetStringAsync("http://localhost:8000/portalapp/api/services");
 
-            string response = responseTask.Result;
+            // string response = responseTask.Result;
 
-            var result = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>>(response);
+            // var result = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>>(response);
 
-            var loggingResponse = $"response data: {result?["san_services"][0]["service_id"]}";
+            // var loggingResponse = $"response data: {result?["san_services"][0]["service_id"]}";
 
-            _logger.Log(LogLevel.Information, loggingResponse);
+            // _logger.Log(LogLevel.Information, loggingResponse);
 
             return CurrentTemplate(CurrentPage);
         }
