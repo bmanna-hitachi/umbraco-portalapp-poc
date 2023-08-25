@@ -5,4 +5,122 @@
 	Layout = "Master.cshtml";
 }
 
-<h2 class="text-2xl font-bold mb-4">You have reached Services</h2>
+@* private IPublishedValueFallback _publishedValueFallback;
+public Dictionary<string, List<Dictionary<string, string>>> services;
+
+// ctor
+public Services(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+	: base(content, publishedValueFallback)
+{
+	_publishedValueFallback = publishedValueFallback;
+	services = new Dictionary<string, List<Dictionary<string, string>>>() {
+		{"san_services", new List<Dictionary<string,string>>()},
+		{"hnas_services", new List<Dictionary<string,string>>()},
+	};
+} *@
+
+<main class="py-6 ml-4 lg:ml-0">
+	<div class="max-w-screen-2xl mx-auto">
+	  <div class="py-6 ml-0 lg:ml-6">
+
+		<div class="mb-4">
+			<div id='san_header_div' class="shrink-0 flex w-3/4 lg:w-1/2 justify-between text-gray-400 bg-white rounded-lg shadow-lg hover:bg-gray-700 hover:text-white hover:cursor-pointer" onclick="dropdownToggle('san')">
+					@* Heading  *@
+			  <h2 class="text-2xl font-bold py-2 px-4 -mr-2">Hitachi Block Storage</h2>
+			  <div class="py-4 mr-4">
+				<svg id="san_dropdown" class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+				  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+				</svg>
+			  </div>
+			</div>
+
+				@* SAN services *@
+		  <div class="text-gray-500 flex flex-wrap" id="san_div">
+					@* Cards - Services  *@
+					@foreach (var serviceList in @Model.services["san_services"])
+					{
+										<div class="py-3 mr-6">
+											<div class="block rounded-lg bg-white shadow-lg w-52 p-6 overflow-hidden transform transition duration-300 hover:text-black hover:scale-105 hover:shadow-accentpurple h-48 group cursor-pointer" onclick="setCurrentServiceAndRedirect('{{service.service_id}}')">
+												<div class="flex flex-col justify-between items-center text-center h-full">
+												<svg xmlns="http://www.w3.org/2000/svg"
+													xmlns:xlink="http://www.w3.org/1999/xlink" fill="#b4b4bc" class="h-12 w-full border border-dashed border-silver rounded-lg  group-hover:fill-black group-hover:border-black group-hover:border-solid">
+
+													<text x="26" y="32" class="cgi-text">@serviceList["service_id"]</text>
+												</svg>
+												<div class="m-auto">
+													<h5 class="text-sm mt-2">@serviceList["service_name"]</h5>
+												</div>
+												</div>
+											</div>
+										</div>
+					}
+		  </div>
+		</div>
+
+		<div class="mt-8">
+		  <div id='hnas_header_div' class="shrink-0 flex w-3/4 lg:w-1/2 justify-between text-gray-400 bg-white rounded-lg shadow-lg hover:bg-gray-700 hover:text-white hover:cursor-pointer" onclick="dropdownToggle('hnas')">
+					@* Heading  *@
+			<h2 class="text-2xl font-bold py-2 px-4 -mr-2">Hitachi Network Attached Storage</h2>
+			<div class="py-4 mr-4">
+			  <svg id="hnas_dropdown" class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+			  </svg>
+			</div>
+		  </div>
+
+				@* hnas services *@
+		<div class="text-gray-500 flex flex-wrap" id="hnas_div">
+					@* Cards - Services  *@
+					@foreach (var serviceList in @Model.services["hnas_services"])
+					{
+						<div class="py-3 mr-6">
+							<div class="block rounded-lg bg-white shadow-lg w-52 p-6 overflow-hidden transform transition duration-300 hover:text-black hover:scale-105 hover:shadow-accentpurple h-48 group cursor-pointer" onclick="setCurrentServiceAndRedirect('{{service.service_id}}')">
+							  <div class="flex flex-col justify-items-center items-center text-center h-full"> 
+								<svg xmlns="http://www.w3.org/2000/svg"
+									xmlns:xlink="http://www.w3.org/1999/xlink" fill="#b4b4bc" class="h-12 w-full border border-dashed border-silver rounded-lg  group-hover:fill-black group-hover:border-black group-hover:border-solid">
+
+									<text x="26" y="32" class="cgi-text">@serviceList["service_id"]}</text>
+								</svg>
+								<div class="m-auto">
+								  <h5 class="text-sm mt-2">@serviceList["service_name"]</h5>
+								</div>
+							  </div>
+							</div>
+						</div>
+					}
+				</div>
+			  </div>
+
+				</div>
+			  </div>
+			</div>
+		  </main>
+
+@* The styling here is for the SVG  *@
+		  <style>
+			.cgi-text {
+			  font: bold 24px sans-serif;
+			}
+		  </style>
+
+		  <script>
+
+			// used to provide the dropdown toggle facility
+			// for SAN & HNAS divs containing the cards
+			function dropdownToggle(category='san') {
+			  const dropdownSvg = document.getElementById(`${category}_dropdown`);
+			  const sanDiv = document.getElementById(`${category}_div`);
+			  const sanHeaderDiv = document.getElementById(`${category}_header_div`);
+			  dropdownSvg.classList.toggle('rotate-180')
+			  sanDiv.classList.toggle('hidden');
+			}
+
+			// set `current_service` variable
+			// this variable is used all throughout the portal
+			// this variable is also saved in local-storage for faster use
+			async function setCurrentServiceAndRedirect(serviceId, url="#") {
+			  const restService = {"CGI.001": true, "CGI.008": true, "CGI.039": true, "CGI.040": true, "CGI.057": true, "CGI.060": true};
+			  await localStorage.setItem('current_service', serviceId);
+			  window.location.href = `${restService[serviceId] ? '#' : url}${serviceId}`;
+			}
+		  </script>

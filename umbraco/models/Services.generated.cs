@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Services</summary>
 	[PublishedModel("services")]
-	public partial class Services : PublishedContentModel
+	public partial class Services : PublishedContentModel, IServicesListProperty
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -39,14 +39,17 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
+		public Dictionary<string, List<Dictionary<string, string>>> services;
 
 		// ctor
 		public Services(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
+			services = new Dictionary<string, List<Dictionary<string, string>>>() {
+				{"san_services", new List<Dictionary<string,string>>()},
+				{"hnas_services", new List<Dictionary<string,string>>()},
+			};
 		}
-
-		// properties
 	}
 }
