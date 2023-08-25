@@ -18,9 +18,15 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
+	// Mixin Content Type with alias "servicesListProperty"
+	/// <summary>Services List Property</summary>
+	public partial interface IServicesListProperty : IPublishedElement
+	{
+	}
+
 	/// <summary>Services List Property</summary>
 	[PublishedModel("servicesListProperty")]
-	public partial class ServicesListProperty : PublishedElementModel
+	public partial class ServicesListProperty : PublishedElementModel, IServicesListProperty
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
